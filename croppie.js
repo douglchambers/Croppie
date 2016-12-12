@@ -258,10 +258,13 @@
         var width = img.width,
             height = img.height,
             ctx = canvas.getContext('2d');
-
         canvas.width = img.width;
         canvas.height = img.height;
-
+        ctx.imageSmoothingQuality = "high";
+        ctx.mozImageSmoothingEnabled = true;
+        ctx.webkitImageSmoothingEnabled = true;
+        ctx.msImageSmoothingEnabled = true;
+        ctx.imageSmoothingEnabled = true;
         ctx.save();
         switch (orientation) {
             case 2:
@@ -308,6 +311,11 @@
                 ctx.rotate(-90*Math.PI/180);
                 break;
         }
+        ctx.imageSmoothingQuality = "high";
+        ctx.mozImageSmoothingEnabled = true;
+        ctx.webkitImageSmoothingEnabled = true;
+        ctx.msImageSmoothingEnabled = true;
+        ctx.imageSmoothingEnabled = true;
         ctx.drawImage(img, 0,0, width, height);
         ctx.restore();
     }
@@ -998,7 +1006,11 @@
             height = self._originalImageHeight - top;
             outHeight = height;
         }
-
+        ctx.imageSmoothingQuality = "high";
+        ctx.mozImageSmoothingEnabled = true;
+        ctx.webkitImageSmoothingEnabled = true;
+        ctx.msImageSmoothingEnabled = true;
+        ctx.imageSmoothingEnabled = true;
         ctx.drawImage(this.elements.preview, left, top, width, height, startX, startY, outWidth, outHeight);
         if (circle) {
             ctx.fillStyle = '#fff';
