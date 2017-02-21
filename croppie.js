@@ -1355,6 +1355,9 @@
         },
         destroy: function () {
             return _destroy.call(this);
+        },
+        create: function () {
+            return _create.call(this);
         }
     });
 
